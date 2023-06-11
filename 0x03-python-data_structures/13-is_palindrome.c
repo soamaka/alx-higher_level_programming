@@ -1,27 +1,47 @@
+
 /*
- * File: 13-is_palindrome.c
- */
+ * File_name: 13-is_palindrome.c
+Project: 0x03-python-data_structures
+*/
 
 #include "lists.h"
+#include <stddef.h>
+/**
+ * pal -  a function in C that checks if a singly linked list is a palindrome.
+ * @start: start position of list
+ * @end: end position of list
+ *
+ * Return: 1 if list is a palindrome, 0 otherwise
+ */
 
-listint_t *reverse_listint(listint_t **head);
-int is_palindrome(listint_t **head);
+int pal(listint_t **start, listint_t *end)
+{
+	if (end == NULL)
+		return (1);
+
+	if (pal(start, end->next) == 1 && (*start)->n == end->n)
+	{
+		*start = (*start)->next;
+		return (1);
+	}
+
+	return (0);
+}
+
 
 /**
- * reverse_listint - Reverses a singly-linked listint_t list.
- * @head: A pointer to the starting node of the list to reverse.
+ * is_palindrome - a function that check
+ * if a singly linked list is a palindrome
+ * @head: list to check
  *
- * Return: A pointer to the head of the reversed list.
+ * Return: 1 if list is a palindrome, 0 otherwise
  */
-listint_t *reverse_listint(listint_t **head)
-{
-	listint_t *node = *head, *next, *prev = NULL;
 
-	while (node)
-	{
-		next = node->next;
-		node->next = prev;
-		prev = node;
-		node = next;
-	}
+int is_palindrome(listint_t **head)
+{
+	if (head == NULL || *head == NULL || (*head)->next == NULL)
+		return (1);
+
+	return (pal(head, *head));
+}
 
