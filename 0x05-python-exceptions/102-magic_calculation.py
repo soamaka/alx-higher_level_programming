@@ -1,16 +1,30 @@
-#!/usr/bin/python3i
-# 102-magic_calculation.py
+#!/usr/bin/python3
+
+"""
+File_name: 102-magic_calculation.py
+"""
 
 
 def magic_calculation(a, b):
-    result = 0
-    for i in range(1, 3):
+
+    """
+    # that does exactly the same as the following Python bytecode
+    # VARIABLE(" "):
+    # mafic_calculation(int): ByteCode -> Python #4
+    # Returns: Always 0. (Success)
+    """
+    total_sum = 0
+    for x in range(1, 3):
+        """The byte code represent a Loop that iterates over range '(1, 4)"""
         try:
-            if i > a:
-                raise Exception('Too far')
-            else:
-                result += a ** b / i
-        except:
-            result = b + a
+            if x > a:
+                """Inside this Loop, there is a comparison 'if x > a'"""
+                """And if it's true, an exception is raised,
+                Otherwise, the calculation below"""
+                raise Exception('Too Far')
+            total_sum += (a ** b) / x
+        except BaseException:
+            total_sum = b + a
             break
-    return (result)
+        """ Finally, the 'total_sum' is returned"""
+    return total_sum
