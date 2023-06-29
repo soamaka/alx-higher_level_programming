@@ -2,6 +2,8 @@
 
 """
 File_name: 1-square.py
+Project: 0x06-python-classes
+Status: submitted.
 """
 
 
@@ -19,4 +21,4 @@ class Square:
     def __init__(self, size):
         """ It takes a parameter 'size' and initializes the private instance...
         ...attribute '__size' with the provided value"""
-        self.__size = sizei
+        self.__size = size
